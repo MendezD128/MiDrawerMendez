@@ -1,41 +1,109 @@
 import 'package:flutter/material.dart';
 
-void main() => runApp(MyApp());
+void main() => runApp(const MiDrawerMendez());
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
-  // This widget is the root of your application.
+class MiDrawerMendez extends StatelessWidget {
+  const MiDrawerMendez({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      // Application name
-      title: 'Flutter Hello World',
-      // Application theme data, you can set the colors for the application as
-      // you want
-      theme: ThemeData(
-        // useMaterial3: true,
-        primarySwatch: Colors.blue,
-      ),
-      // A widget which will be started on application startup
-      home: MyHomePage(title: 'Flutter Demo Home Page'),
-    );
-  }
-}
-
-class MyHomePage extends StatelessWidget {
-  final String title;
-  const MyHomePage({super.key, required this.title});  
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        // The title text which will be shown on the action bar
-        title: Text(title),
-      ),
-      body: Center(
-        child: Text(
-          'Hello, World!',
+      debugShowCheckedModeBanner: false,
+      home: Scaffold(
+        appBar: AppBar(
+          backgroundColor: Color(0xffff0000),
+          title: const Text("Mi Drawer Mendez"),
+        ),
+        drawer: Drawer(
+          child: ListView(
+            children: [
+              UserAccountsDrawerHeader(
+                accountName: Text("Porsche"),
+                accountEmail: Text("a.21308051280384@cbtis128.edu.mx"),
+                currentAccountPicture: CircleAvatar(
+                  backgroundImage: NetworkImage(
+                      "https://raw.githubusercontent.com/MendezD128/Img_IOS/main/porsche-logo-brand-car-symbol-design-german-automobile-illustration-with-red-background-free-vector.jpg"),
+                ),
+                decoration: BoxDecoration(
+                  color: Color(0xff000000),
+                  image: DecorationImage(
+                    image: NetworkImage(
+                      "https://raw.githubusercontent.com/MendezD128/Img_IOS/main/extcam03.webp",
+                    ),
+                    fit: BoxFit.fill,
+                  ),
+                ),
+                otherAccountsPictures: [
+                  CircleAvatar(
+                    backgroundColor: Colors.white,
+                    backgroundImage: NetworkImage(
+                        "https://raw.githubusercontent.com/MendezD128/Img_IOS/main/GettyImages-1730743172.webp"),
+                  ),
+                  CircleAvatar(
+                    backgroundColor: Colors.white,
+                    backgroundImage: NetworkImage(
+                        "https://raw.githubusercontent.com/MendezD128/Img_IOS/main/if-you-ever-feel-dumb-just-remember-kanye-west.jpg"),
+                  ),
+                ],
+              ),
+              ListTile(
+                leading: Icon(
+                  Icons.home,
+                  color: Colors.blue.shade400,
+                ),
+                title: Text("Inicio"),
+                onTap: () {},
+              ),
+              ListTile(
+                leading: Icon(
+                  Icons.account_box,
+                  color: Colors.blue.shade400,
+                ),
+                title: Text("Tu cuenta"),
+                onTap: () {},
+              ),
+              ListTile(
+                leading: Icon(
+                  Icons.car_rental,
+                  color: Colors.blue.shade400,
+                ),
+                title: Text("Carros"),
+                onTap: () {},
+              ),
+              ListTile(
+                leading: Icon(
+                  Icons.brush,
+                  color: Color(0xff820707),
+                ),
+                title: Text("Customizacion"),
+                onTap: () {},
+              ),
+              ListTile(
+                leading: Icon(
+                  Icons.money,
+                  color: Color(0xff820707),
+                ),
+                title: Text("Cotizar"),
+                onTap: () {},
+              ),
+              ListTile(
+                leading: Icon(
+                  Icons.settings,
+                  color: Color(0xff820707),
+                ),
+                title: Text("Ajustes"),
+                onTap: () {},
+              ),
+              ListTile(
+                leading: Icon(
+                  Icons.logout,
+                  color: Color(0xff820707),
+                ),
+                title: Text("Salir"),
+                onTap: () {},
+              )
+            ],
+          ),
         ),
       ),
     );
